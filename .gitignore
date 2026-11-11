@@ -1,0 +1,52 @@
+# Dependencies
+/node_modules
+/frontend/node_modules
+/backend/vendor
+/backend/node_modules
+
+# Production builds
+/frontend/dist
+
+# Environment variables & secrets
+.env
+.env.backup
+.env.production
+/backend/.env
+/backend/.env.backup
+/backend/.env.production
+
+# SQLite Databases
+/backend/database/*.sqlite
+/backend/database/*.sqlite-journal
+/backend/database/*.sqlite-shm
+/backend/database/*.sqlite-wal
+
+# Laravel Storage & Cache
+/backend/storage/*.key
+/backend/storage/framework/cache/*
+/backend/storage/framework/sessions/*
+/backend/storage/framework/views/*
+/backend/storage/framework/testing/*
+/backend/storage/logs/*
+!/backend/storage/framework/cache/.gitignore
+!/backend/storage/framework/sessions/.gitignore
+!/backend/storage/framework/views/.gitignore
+!/backend/storage/framework/testing/.gitignore
+!/backend/storage/logs/.gitignore
+
+# PHP / Composer
+/backend/.phpunit.result.cache
+/backend/.php-cs-fixer.cache
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+Thumbs.db

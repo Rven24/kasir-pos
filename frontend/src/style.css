@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --primary: #10b981;
+    --primary-dark: #059669;
+    --accent: #6366f1;
+    --background: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+  }
+
+  .dark {
+    --primary: #10b981;
+    --primary-dark: #059669;
+    --accent: #818cf8;
+    --background: #090d16;
+    --card-bg: #111827;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #1f2937;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Monospace for currency, receipt, barcode */
+  .font-mono-num {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-feature-settings: "tnum" 1, "zero" 1;
+  }
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+/* Thermal Receipt Print Styles (58mm / 80mm) */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #thermal-receipt-print, #thermal-receipt-print * {
+    visibility: visible;
+  }
+
+  #thermal-receipt-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 58mm; /* standard 58mm or 80mm */
+    margin: 0;
+    padding: 2mm 3mm;
+    font-family: "Courier New", Courier, monospace !important;
+    font-size: 11px;
+    line-height: 1.25;
+    color: #000000 !important;
+    background: #ffffff !important;
+  }
+
+  @page {
+    margin: 0;
+    size: auto;
+  }
+}
